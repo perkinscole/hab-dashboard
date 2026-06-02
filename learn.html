@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learn about HABs — Charles River HAB Dashboard</title>
+  <style>
+    :root {
+      --bg: #0e1b2a; --panel: #13243a; --panel2: #1b3047; --line: #28415f;
+      --text: #e8f0fb; --muted: #93a8c4; --accent: #6bd6ff; --green: #2ecc71;
+      --low: #2ecc71; --moderate: #f1c40f; --elevated: #e67e22; --high: #e74c3c;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.6; }
+    a { color: var(--accent); }
+
+    /* top nav (shared look with dashboard) */
+    .nav { position: sticky; top: 0; z-index: 10; display: flex; align-items: center;
+      gap: 16px; padding: 12px 22px; background: rgba(10,18,28,.92);
+      border-bottom: 1px solid var(--line); backdrop-filter: blur(6px); }
+    .nav .brand { font-weight: 700; font-size: 15px; letter-spacing: .2px; }
+    .nav .brand span { color: var(--accent); }
+    .nav .links { margin-left: auto; display: flex; gap: 8px; }
+    .nav .links a { text-decoration: none; color: var(--muted); font-size: 13px;
+      padding: 6px 12px; border-radius: 8px; border: 1px solid transparent; }
+    .nav .links a:hover { color: var(--text); background: var(--panel2); }
+    .nav .links a.active { color: var(--text); border-color: var(--line); background: var(--panel); }
+
+    .wrap { max-width: 920px; margin: 0 auto; padding: 0 22px 80px; }
+
+    /* hero */
+    .hero { padding: 54px 0 30px; border-bottom: 1px solid var(--line); }
+    .hero h1 { font-size: 34px; margin: 0 0 10px; line-height: 1.15; }
+    .hero p { font-size: 17px; color: var(--muted); margin: 0; max-width: 680px; }
+    .hero .tag { display: inline-block; font-size: 12px; letter-spacing: .8px;
+      text-transform: uppercase; color: var(--green); margin-bottom: 12px; font-weight: 650; }
+
+    section { padding: 36px 0; border-bottom: 1px solid var(--line); }
+    section h2 { font-size: 24px; margin: 0 0 6px; }
+    section h2 .num { color: var(--accent); font-weight: 700; margin-right: 8px; }
+    section .lead { color: var(--muted); margin: 0 0 22px; max-width: 720px; }
+    h3 { font-size: 17px; margin: 24px 0 8px; }
+    p { margin: 0 0 14px; }
+    ul { margin: 0 0 14px; padding-left: 20px; }
+    li { margin-bottom: 7px; }
+
+    /* driver cards mapped to the dashboard score */
+    .drivers { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 14px; }
+    .driver { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+    .driver .ico { font-size: 22px; }
+    .driver h4 { margin: 8px 0 4px; font-size: 15px; }
+    .driver p { font-size: 13px; color: var(--muted); margin: 0; }
+    .driver .maps { display: inline-block; margin-top: 10px; font-size: 11px; color: var(--green);
+      border: 1px solid #1f5e36; background: #0f2a1a; padding: 2px 8px; border-radius: 999px; }
+
+    /* genus gallery */
+    .genera { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 16px; }
+    .genus { background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+      overflow: hidden; display: flex; flex-direction: column; }
+    .genus .art { background: radial-gradient(circle at 50% 35%, #16314a, #0d1d2e);
+      display: flex; align-items: center; justify-content: center; padding: 18px; }
+    .genus .art svg { width: 150px; height: 150px; }
+    .genus .body { padding: 14px 16px 18px; }
+    .genus h3 { margin: 0 0 2px; font-size: 17px; }
+    .genus .alt { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 10px; }
+    .genus .row { font-size: 12.5px; margin-bottom: 6px; }
+    .genus .row b { color: var(--muted); font-weight: 600; }
+    .toxin { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 999px;
+      background: #2a1614; border: 1px solid #6b3320; color: #ff9b8b; }
+
+    /* callouts */
+    .callout { border-left: 4px solid var(--accent); background: var(--panel);
+      padding: 14px 18px; border-radius: 0 10px 10px 0; margin: 18px 0; }
+    .callout.warn { border-left-color: var(--high); }
+    .callout.warn strong { color: #ff9b8b; }
+    .callout.good { border-left-color: var(--green); }
+
+    /* remediation tiers */
+    .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 16px; }
+    .tier { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+    .tier .badge { font-size: 11px; text-transform: uppercase; letter-spacing: .6px;
+      font-weight: 700; padding: 3px 9px; border-radius: 999px; }
+    .tier.best .badge { background: #0f2a1a; color: #7dffa6; border: 1px solid #1f5e36; }
+    .tier.mid .badge { background: #2a2310; color: #ffcf6b; border: 1px solid #6b5320; }
+    .tier.long .badge { background: #102530; color: #6bd6ff; border: 1px solid #1d4a5e; }
+    .tier h3 { margin: 12px 0 8px; }
+    .tier ul { font-size: 13.5px; }
+    .tier .note { font-size: 12px; color: var(--muted); }
+
+    .sources { font-size: 13.5px; color: var(--muted); }
+    .sources a { color: var(--accent); }
+    .backlink { display: inline-block; margin-top: 26px; padding: 11px 18px; border-radius: 10px;
+      background: var(--accent); color: #06222e; font-weight: 700; text-decoration: none; }
+    .backlink:hover { filter: brightness(1.08); }
+    .disclaimer { font-size: 12px; color: var(--muted); margin-top: 28px; font-style: italic; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">🌊 Charles River <span>HAB</span> Dashboard</div>
+    <div class="links">
+      <a href="index.html">Dashboard</a>
+      <a href="learn.html" class="active">Learn</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <div class="hero">
+      <div class="tag">Field guide</div>
+      <h1>Harmful Algal Blooms, explained</h1>
+      <p>Why our lakes and slow rivers sometimes turn into pea-green soup, which
+      microbes are behind it, what makes them dangerous, and what we can actually
+      do about it — the science behind every number on the dashboard.</p>
+    </div>
+
+    <!-- 1. WHAT -->
+    <section id="what">
+      <h2><span class="num">1</span>What is a HAB?</h2>
+      <p class="lead">A <strong>harmful algal bloom (HAB)</strong> is a rapid,
+      dense overgrowth of algae or algae-like microbes in water — so dense it can
+      paint the surface green, blue, or even reddish and form a paint-like scum.</p>
+
+      <p>In fresh water like the Charles River and the ponds around it, the usual
+      culprits aren't true algae at all — they're <strong>cyanobacteria</strong>,
+      also called <em>blue-green algae</em>. Cyanobacteria are ancient
+      photosynthetic <em>bacteria</em>: they make their own food from sunlight, the
+      same way plants do, and they've been doing it for over two billion years
+      (they're the reason Earth's atmosphere has oxygen at all).</p>
+
+      <p>A little bit of them is completely normal and healthy. A <em>bloom</em> is
+      when conditions line up so perfectly that they multiply faster than anything
+      can eat or out-compete them. The trouble is that many bloom-forming species
+      can release <strong>toxins</strong>, and even non-toxic blooms can choke a
+      waterbody of oxygen as they die and rot.</p>
+
+      <div class="callout">
+        <strong>Algae vs. cyanobacteria:</strong> "Algae" loosely covers many
+        photosynthetic organisms. The blooms that close beaches and sicken dogs in
+        New England fresh water are almost always cyanobacteria — true bacteria,
+        not plants or true algae. That biology is exactly why warmth and nutrients
+        drive them so strongly.
+      </div>
+    </section>
+
+    <!-- 2. WHY -->
+    <section id="why">
+      <h2><span class="num">2</span>Why do blooms happen?</h2>
+      <p class="lead">Blooms are a recipe, not a single cause. When several
+      ingredients show up together, cyanobacteria take off. These same ingredients
+      are exactly what the dashboard's risk score watches for.</p>
+
+      <div class="drivers">
+        <div class="driver">
+          <div class="ico">🌡️</div>
+          <h4>Warm water</h4>
+          <p>Cyanobacteria thrive in warm water (roughly above 18–25 °C) and
+          out-compete other algae as it heats up.</p>
+          <span class="maps">Dashboard: Water temperature</span>
+        </div>
+        <div class="driver">
+          <div class="ico">💧</div>
+          <h4>Excess nutrients</h4>
+          <p>Phosphorus and nitrogen from fertilizer, sewage, pet waste, and
+          stormwater are food. Too much = <em>eutrophication</em>.</p>
+          <span class="maps">Dashboard: Nutrient-flush precip</span>
+        </div>
+        <div class="driver">
+          <div class="ico">🛑</div>
+          <h4>Slow, stagnant water</h4>
+          <p>Low flow lets buoyant colonies float up and pile into surface scums
+          instead of being flushed downstream.</p>
+          <span class="maps">Dashboard: Flow stagnation</span>
+        </div>
+        <div class="driver">
+          <div class="ico">☀️</div>
+          <h4>Lots of sunlight</h4>
+          <p>More sun = more photosynthesis = faster growth, especially in calm,
+          clear, stratified water.</p>
+          <span class="maps">Dashboard: Sunshine</span>
+        </div>
+        <div class="driver">
+          <div class="ico">🫧</div>
+          <h4>Oxygen swings</h4>
+          <p>A heavy bloom super-saturates oxygen by day, then crashes it at night
+          and as it decays — stressing or killing fish.</p>
+          <span class="maps">Dashboard: Dissolved oxygen</span>
+        </div>
+      </div>
+
+      <h3>The role of nutrients (the big lever)</h3>
+      <p>Of all the ingredients, <strong>nutrient pollution is the one humans
+      control most directly</strong>. Rain washes fertilizer off lawns and farms,
+      carries phosphorus from soil and pavement, and overflows aging sewers — a
+      pulse of nutrients a few days before a warm, sunny, calm stretch is a classic
+      bloom setup. That's why the dashboard treats recent rain as a "nutrient
+      flush" signal.</p>
+
+      <p>Climate change tilts the whole system toward blooms: warmer summers,
+      warmer water, longer growing seasons, and more intense downpours that flush
+      more nutrients all at once.</p>
+    </section>
+
+    <!-- 3. TYPES -->
+    <section id="types">
+      <h2><span class="num">3</span>Meet the cyanobacteria</h2>
+      <p class="lead">A handful of genera cause most freshwater HABs in the
+      northeastern U.S. Here's how to tell them apart and what each can produce.
+      <em>(Illustrations are stylized diagrams of each microbe's shape — see the
+      sources below for microscope photos.)</em></p>
+
+      <div class="genera">
+
+        <!-- Microcystis: colony of spheres in mucilage -->
+        <div class="genus">
+          <div class="art">
+            <svg viewBox="0 0 150 150" role="img" aria-label="Microcystis: a colony of many small spheres in a mucilage blob">
+              <path d="M40 35 Q20 55 28 85 Q35 120 75 122 Q120 122 124 82 Q128 45 95 33 Q65 22 40 35 Z"
+                    fill="#1c5f4a" opacity="0.35"/>
+              <g fill="#2ecc71" stroke="#163d2e" stroke-width="1">
+                <circle cx="55" cy="55" r="9"/><circle cx="74" cy="50" r="9"/>
+                <circle cx="93" cy="58" r="9"/><circle cx="48" cy="73" r="9"/>
+                <circle cx="67" cy="70" r="9"/><circle cx="86" cy="73" r="9"/>
+                <circle cx="103" cy="72" r="8"/><circle cx="58" cy="90" r="9"/>
+                <circle cx="77" cy="89" r="9"/><circle cx="95" cy="90" r="8"/>
+                <circle cx="68" cy="107" r="8"/><circle cx="85" cy="106" r="8"/>
+              </g>
+            </svg>
+          </div>
+          <div class="body">
+            <h3>Microcystis</h3>
+            <div class="alt">the most notorious bloom-former</div>
+            <div class="row"><b>Looks like:</b> dense, irregular colonies of tiny
+            round cells packed in clear jelly (mucilage); forms thick green surface scum.</div>
+            <div class="row"><b>Toxin:</b> <span class="toxin">microcystins</span> — liver damage.</div>
+            <div class="row"><b>Note:</b> the classic "spilled paint" bloom on warm, calm ponds.</div>
+          </div>
+        </div>
+
+        <!-- Dolichospermum: chain of beads with heterocyst + akinete -->
+        <div class="genus">
+          <div class="art">
+            <svg viewBox="0 0 150 150" role="img" aria-label="Dolichospermum: a bead-like chain of cells with a larger heterocyst and resting akinete">
+              <g stroke="#16314a" stroke-width="1">
+                <circle cx="28" cy="58" r="10" fill="#2ecc71"/>
+                <circle cx="46" cy="66" r="10" fill="#2ecc71"/>
+                <circle cx="64" cy="74" r="11" fill="#f1c40f"/><!-- heterocyst -->
+                <circle cx="83" cy="80" r="10" fill="#2ecc71"/>
+                <circle cx="101" cy="86" r="10" fill="#2ecc71"/>
+                <ellipse cx="121" cy="93" rx="13" ry="10" fill="#e67e22"/><!-- akinete -->
+              </g>
+              <text x="64" y="100" fill="#f1c40f" font-size="9" text-anchor="middle">heterocyst</text>
+              <text x="121" y="116" fill="#e67e22" font-size="9" text-anchor="middle">akinete</text>
+            </svg>
+          </div>
+          <div class="body">
+            <h3>Dolichospermum</h3>
+            <div class="alt">formerly <em>Anabaena</em></div>
+            <div class="row"><b>Looks like:</b> beaded chains (filaments). Larger
+            pale cells (<em>heterocysts</em>) pull nitrogen from the air; thick-walled
+            <em>akinetes</em> are resting cells that overwinter.</div>
+            <div class="row"><b>Toxin:</b> <span class="toxin">anatoxin-a</span>
+            <span class="toxin">microcystins</span> — nerve &amp; liver.</div>
+            <div class="row"><b>Note:</b> can fertilize itself with nitrogen, so
+            phosphorus alone can fuel it.</div>
+          </div>
+        </div>
+
+        <!-- Aphanizomenon: bundles of straight filaments -->
+        <div class="genus">
+          <div class="art">
+            <svg viewBox="0 0 150 150" role="img" aria-label="Aphanizomenon: bundles of straight filaments like grass clippings">
+              <g stroke="#2ecc71" stroke-width="7" stroke-linecap="round" opacity="0.95">
+                <line x1="22" y1="50" x2="128" y2="44"/>
+                <line x1="20" y1="66" x2="130" y2="62"/>
+                <line x1="24" y1="82" x2="126" y2="80"/>
+                <line x1="22" y1="98" x2="128" y2="96"/>
+              </g>
+              <g stroke="#16573f" stroke-width="1" opacity="0.5">
+                <line x1="40" y1="40" x2="40" y2="108"/><line x1="62" y1="40" x2="62" y2="108"/>
+                <line x1="84" y1="40" x2="84" y2="108"/><line x1="106" y1="40" x2="106" y2="108"/>
+              </g>
+            </svg>
+          </div>
+          <div class="body">
+            <h3>Aphanizomenon</h3>
+            <div class="alt">the "grass clippings" alga</div>
+            <div class="row"><b>Looks like:</b> straight filaments that raft together
+            into flakes or bundles that look like floating bits of cut grass.</div>
+            <div class="row"><b>Toxin:</b> <span class="toxin">saxitoxins</span>
+            <span class="toxin">cylindrospermopsin</span> — nerve &amp; organ.</div>
+            <div class="row"><b>Note:</b> also a nitrogen-fixer; common in lakes &amp; reservoirs.</div>
+          </div>
+        </div>
+
+        <!-- Planktothrix: solitary long filament -->
+        <div class="genus">
+          <div class="art">
+            <svg viewBox="0 0 150 150" role="img" aria-label="Planktothrix: a single long unbranched filament of disc-shaped cells">
+              <path d="M16 96 Q45 40 75 70 Q105 100 134 52" fill="none"
+                    stroke="#1aa37a" stroke-width="14" stroke-linecap="round"/>
+              <path d="M16 96 Q45 40 75 70 Q105 100 134 52" fill="none"
+                    stroke="#16573f" stroke-width="14" stroke-linecap="round"
+                    stroke-dasharray="2 12"/>
+            </svg>
+          </div>
+          <div class="body">
+            <h3>Planktothrix</h3>
+            <div class="alt">the cool-water specialist</div>
+            <div class="row"><b>Looks like:</b> long, solitary, unbranched filaments
+            of stacked disc-shaped cells; often forms reddish or olive layers.</div>
+            <div class="row"><b>Toxin:</b> <span class="toxin">microcystins</span> — liver.</div>
+            <div class="row"><b>Note:</b> can bloom in cooler, lower-light water and
+            even under ice, extending the bloom season.</div>
+          </div>
+        </div>
+
+        <!-- Raphidiopsis / Cylindrospermopsis: curved filament with terminal heterocyst -->
+        <div class="genus">
+          <div class="art">
+            <svg viewBox="0 0 150 150" role="img" aria-label="Cylindrospermopsis: a slender curved filament with a heterocyst at the tip">
+              <path d="M22 50 Q70 30 100 70 Q120 96 118 110" fill="none"
+                    stroke="#2ecc71" stroke-width="11" stroke-linecap="round"/>
+              <path d="M22 50 Q70 30 100 70 Q120 96 118 110" fill="none"
+                    stroke="#16573f" stroke-width="11" stroke-linecap="round"
+                    stroke-dasharray="1.5 11"/>
+              <circle cx="118" cy="113" r="8" fill="#f1c40f" stroke="#16314a"/>
+            </svg>
+          </div>
+          <div class="body">
+            <h3>Cylindrospermopsis</h3>
+            <div class="alt">(&amp; <em>Raphidiopsis</em>) — the spreading invader</div>
+            <div class="row"><b>Looks like:</b> very slender, slightly curved solitary
+            filaments, sometimes with a heterocyst at the tip.</div>
+            <div class="row"><b>Toxin:</b> <span class="toxin">cylindrospermopsin</span> — liver &amp; kidney.</div>
+            <div class="row"><b>Note:</b> a warm-climate species expanding northward
+            as waters warm.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. TOXINS / HEALTH -->
+    <section id="health">
+      <h2><span class="num">4</span>Why "harmful"? Toxins &amp; oxygen</h2>
+      <p class="lead">Not every bloom is toxic, and you can't tell by looking — but
+      blooms are harmful in two main ways.</p>
+
+      <h3>Cyanotoxins</h3>
+      <ul>
+        <li><strong>Microcystins &amp; cylindrospermopsin</strong> — damage the
+        liver and kidneys; the most common in freshwater blooms.</li>
+        <li><strong>Anatoxin-a</strong> — a fast-acting nerve toxin (its grim
+        nickname is "Very Fast Death Factor"); dangerous to dogs that lick scum
+        off their fur.</li>
+        <li><strong>Saxitoxins</strong> — potent nerve toxins, the same family
+        behind shellfish poisoning.</li>
+      </ul>
+
+      <h3>Oxygen crashes</h3>
+      <p>Even a non-toxic bloom is dangerous. By day the bloom floods the water with
+      oxygen; at night it consumes it, and when the bloom dies, bacteria decomposing
+      it strip oxygen from the water — causing fish kills and "dead zones." That's
+      why a big swing in dissolved oxygen is a strong late-stage warning sign.</p>
+
+      <div class="callout warn">
+        <strong>Stay safe:</strong> Don't swim in, drink, or let pets enter water
+        that looks like spilled green paint, pea soup, or has a surface scum.
+        Rinse off after contact, and never let a dog lick its fur after being in
+        scummy water. When in doubt, stay out — and report it to your state
+        environmental agency.
+      </div>
+    </section>
+
+    <!-- 5. REMEDIATION -->
+    <section id="remediation">
+      <h2><span class="num">5</span>What can we do about it?</h2>
+      <p class="lead">Solutions fall into three tiers. The cheapest and most
+      effective work happens on land, long before a bloom ever forms.</p>
+
+      <div class="tiers">
+        <div class="tier best">
+          <span class="badge">Best: prevent</span>
+          <h3>Cut the nutrients at the source</h3>
+          <ul>
+            <li>Use less lawn &amp; farm fertilizer; never before rain.</li>
+            <li>Plant <em>buffer strips</em> of vegetation along shorelines to
+            soak up runoff.</li>
+            <li>Fix leaking septic systems and aging sewers.</li>
+            <li>Manage stormwater with rain gardens &amp; permeable surfaces.</li>
+            <li>Restore wetlands — nature's nutrient filters.</li>
+            <li>Pick up pet waste.</li>
+          </ul>
+          <div class="note">Starves blooms of the phosphorus &amp; nitrogen they need.</div>
+        </div>
+
+        <div class="tier mid">
+          <span class="badge">In-lake: treat</span>
+          <h3>Manage an existing problem</h3>
+          <ul>
+            <li><b>Aeration / mixing</b> — keeps water circulating so buoyant
+            cyanobacteria can't dominate the surface.</li>
+            <li><b>Nutrient inactivation</b> — alum or Phoslock locks phosphorus
+            into the sediment so algae can't use it.</li>
+            <li><b>Algaecides</b> (copper, hydrogen peroxide) — fast but a blunt
+            tool; killing cells can release stored toxins, so used carefully.</li>
+            <li><b>Harvesting / skimming</b> surface scum.</li>
+            <li><b>Biomanipulation</b> — adjusting the food web to favor algae-eaters.</li>
+          </ul>
+          <div class="note">Helpful, but treats symptoms, not the cause.</div>
+        </div>
+
+        <div class="tier long">
+          <span class="badge">Long-term: monitor</span>
+          <h3>Watch, warn &amp; plan</h3>
+          <ul>
+            <li>Routine <b>monitoring</b> of temperature, nutrients, and pigments.</li>
+            <li><b>Early-warning</b> tools — like this dashboard — that flag risky
+            conditions before a bloom peaks.</li>
+            <li>Public alerts and beach closures.</li>
+            <li>Watershed-scale policy: green infrastructure &amp; agricultural
+            best-management practices.</li>
+            <li>Climate adaptation, since warming makes blooms more frequent.</li>
+          </ul>
+          <div class="note">You can't manage what you don't measure.</div>
+        </div>
+      </div>
+
+      <div class="callout good">
+        <strong>Where this dashboard fits:</strong> it's an early-warning tool. By
+        pulling live temperature, flow, sunlight, rainfall, and oxygen data and
+        scoring them against the conditions that drive blooms, it points to
+        <em>where and when</em> risk is rising — so people can sample, post
+        warnings, or just decide whether today's a good day to fish.
+      </div>
+    </section>
+
+    <!-- SOURCES -->
+    <section id="sources" style="border-bottom:none;">
+      <h2>Learn more &amp; see real photos</h2>
+      <p class="sources">
+        • <a href="https://www.epa.gov/cyanohabs" target="_blank" rel="noopener">US EPA — Cyanobacterial HABs</a><br>
+        • <a href="https://www.cdc.gov/harmful-algal-blooms/" target="_blank" rel="noopener">CDC — Harmful Algal Blooms &amp; health</a><br>
+        • <a href="https://www.mass.gov/info-details/learn-about-cyanobacteria-and-cyanotoxins" target="_blank" rel="noopener">Mass.gov — Cyanobacteria &amp; cyanotoxins</a><br>
+        • <a href="https://oceanservice.noaa.gov/hazards/hab/" target="_blank" rel="noopener">NOAA — What is a harmful algal bloom?</a><br>
+        • <a href="https://www.epa.gov/nutrientpollution" target="_blank" rel="noopener">US EPA — Nutrient pollution (eutrophication)</a>
+      </p>
+
+      <a class="backlink" href="index.html">← Back to the live risk dashboard</a>
+
+      <p class="disclaimer">This page is an educational overview, not health or
+      safety guidance. For advisories about a specific waterbody, always check your
+      state or local environmental and public-health agencies.</p>
+    </section>
+
+  </div>
+</body>
+</html>
