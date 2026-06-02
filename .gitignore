@@ -1,0 +1,8 @@
+# generated SQLite store (rebuilt by fetch.py) -- no need to commit
+water.db
+
+# Python bytecode cache
+__pycache__/
+*.pyc
+
+# DO commit data.json: it is the offline snapshot fallback for the live site
