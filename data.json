@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T14:52:47.812066+00:00",
+  "generated_at": "2026-07-15T16:24:12.161522+00:00",
   "param_names": {
     "00010": "Water temp (C)",
     "00060": "Discharge (cfs)",
@@ -43,8 +43,8 @@
         "00300": "Dissolved O2 (mg/L)"
       },
       "weather": {
-        "air_temp_c": 28.8,
-        "sun_frac": 0.73,
+        "air_temp_c": 28.6,
+        "sun_frac": 0.71,
         "precip_mm": null,
         "outlook": [
           {
@@ -67,7 +67,7 @@
           }
         ]
       },
-      "score": 86.4,
+      "score": 84.1,
       "band": "high",
       "contributing_factors": [
         {
@@ -76,15 +76,15 @@
           "points": 54.5,
           "weight": 0.18,
           "kind": "proxy",
-          "note": "air-temp PROXY 28.8 C (no measured water temp here)"
+          "note": "air-temp PROXY 28.6 C (no measured water temp here)"
         },
         {
           "factor": "Sunshine",
-          "subscore": 0.7,
-          "points": 31.8,
+          "subscore": 0.65,
+          "points": 29.5,
           "weight": 0.15,
           "kind": "measured",
-          "note": "sunshine 73% of sky clear (recent days)"
+          "note": "sunshine 71% of sky clear (recent days)"
         }
       ],
       "outlook": [
@@ -120,8 +120,8 @@
         "00300": "Dissolved O2 (mg/L)"
       },
       "weather": {
-        "air_temp_c": 27.4,
-        "sun_frac": 0.78,
+        "air_temp_c": 27.3,
+        "sun_frac": 0.76,
         "precip_mm": null,
         "outlook": [
           {
@@ -144,7 +144,7 @@
           }
         ]
       },
-      "score": 92.0,
+      "score": 89.8,
       "band": "high",
       "contributing_factors": [
         {
@@ -153,15 +153,15 @@
           "points": 54.5,
           "weight": 0.18,
           "kind": "proxy",
-          "note": "air-temp PROXY 27.4 C (no measured water temp here)"
+          "note": "air-temp PROXY 27.3 C (no measured water temp here)"
         },
         {
           "factor": "Sunshine",
-          "subscore": 0.83,
-          "points": 37.5,
+          "subscore": 0.78,
+          "points": 35.2,
           "weight": 0.15,
           "kind": "measured",
-          "note": "sunshine 78% of sky clear (recent days)"
+          "note": "sunshine 76% of sky clear (recent days)"
         }
       ],
       "outlook": [
@@ -197,8 +197,8 @@
         "00300": "Dissolved O2 (mg/L)"
       },
       "weather": {
-        "air_temp_c": 27.4,
-        "sun_frac": 0.78,
+        "air_temp_c": 27.3,
+        "sun_frac": 0.76,
         "precip_mm": null,
         "outlook": [
           {
@@ -221,7 +221,7 @@
           }
         ]
       },
-      "score": 92.0,
+      "score": 89.8,
       "band": "high",
       "contributing_factors": [
         {
@@ -230,15 +230,15 @@
           "points": 54.5,
           "weight": 0.18,
           "kind": "proxy",
-          "note": "air-temp PROXY 27.4 C (no measured water temp here)"
+          "note": "air-temp PROXY 27.3 C (no measured water temp here)"
         },
         {
           "factor": "Sunshine",
-          "subscore": 0.83,
-          "points": 37.5,
+          "subscore": 0.78,
+          "points": 35.2,
           "weight": 0.15,
           "kind": "measured",
-          "note": "sunshine 78% of sky clear (recent days)"
+          "note": "sunshine 76% of sky clear (recent days)"
         }
       ],
       "outlook": [
@@ -274,8 +274,8 @@
         "00300": "Dissolved O2 (mg/L)"
       },
       "weather": {
-        "air_temp_c": 27.4,
-        "sun_frac": 0.84,
+        "air_temp_c": 27.3,
+        "sun_frac": 0.83,
         "precip_mm": null,
         "outlook": [
           {
@@ -298,7 +298,7 @@
           }
         ]
       },
-      "score": 98.9,
+      "score": 97.7,
       "band": "high",
       "contributing_factors": [
         {
@@ -307,15 +307,15 @@
           "points": 54.5,
           "weight": 0.18,
           "kind": "proxy",
-          "note": "air-temp PROXY 27.4 C (no measured water temp here)"
+          "note": "air-temp PROXY 27.3 C (no measured water temp here)"
         },
         {
           "factor": "Sunshine",
-          "subscore": 0.97,
-          "points": 44.3,
+          "subscore": 0.95,
+          "points": 43.2,
           "weight": 0.15,
           "kind": "measured",
-          "note": "sunshine 84% of sky clear (recent days)"
+          "note": "sunshine 83% of sky clear (recent days)"
         }
       ],
       "outlook": [
@@ -351,8 +351,8 @@
         "00300": "Dissolved O2 (mg/L)"
       },
       "weather": {
-        "air_temp_c": 27.4,
-        "sun_frac": 0.78,
+        "air_temp_c": 27.3,
+        "sun_frac": 0.76,
         "precip_mm": null,
         "outlook": [
           {
@@ -375,7 +375,7 @@
           }
         ]
       },
-      "score": 92.0,
+      "score": 89.8,
       "band": "high",
       "contributing_factors": [
         {
@@ -384,15 +384,15 @@
           "points": 54.5,
           "weight": 0.18,
           "kind": "proxy",
-          "note": "air-temp PROXY 27.4 C (no measured water temp here)"
+          "note": "air-temp PROXY 27.3 C (no measured water temp here)"
         },
         {
           "factor": "Sunshine",
-          "subscore": 0.83,
-          "points": 37.5,
+          "subscore": 0.78,
+          "points": 35.2,
           "weight": 0.15,
           "kind": "measured",
-          "note": "sunshine 78% of sky clear (recent days)"
+          "note": "sunshine 76% of sky clear (recent days)"
         }
       ],
       "outlook": [
@@ -428,8 +428,8 @@
         "00300": "Dissolved O2 (mg/L)"
       },
       "weather": {
-        "air_temp_c": 27.4,
-        "sun_frac": 0.84,
+        "air_temp_c": 27.3,
+        "sun_frac": 0.83,
         "precip_mm": null,
         "outlook": [
           {
@@ -452,7 +452,7 @@
           }
         ]
       },
-      "score": 98.9,
+      "score": 97.7,
       "band": "high",
       "contributing_factors": [
         {
@@ -461,15 +461,15 @@
           "points": 54.5,
           "weight": 0.18,
           "kind": "proxy",
-          "note": "air-temp PROXY 27.4 C (no measured water temp here)"
+          "note": "air-temp PROXY 27.3 C (no measured water temp here)"
         },
         {
           "factor": "Sunshine",
-          "subscore": 0.97,
-          "points": 44.3,
+          "subscore": 0.95,
+          "points": 43.2,
           "weight": 0.15,
           "kind": "measured",
-          "note": "sunshine 84% of sky clear (recent days)"
+          "note": "sunshine 83% of sky clear (recent days)"
         }
       ],
       "outlook": [
