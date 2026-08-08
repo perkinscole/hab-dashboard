@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T20:31:58.790529+00:00",
+  "generated_at": "2026-08-08T21:32:17.608397+00:00",
   "param_names": {
     "00010": "Water temp (C)",
     "00060": "Discharge (cfs)",
@@ -44,7 +44,7 @@
       },
       "weather": {
         "air_temp_c": 28.8,
-        "sun_frac": 0.84,
+        "sun_frac": 0.82,
         "precip_mm": null,
         "outlook": [
           {
@@ -67,7 +67,7 @@
           }
         ]
       },
-      "score": 98.9,
+      "score": 96.6,
       "band": "high",
       "contributing_factors": [
         {
@@ -80,11 +80,11 @@
         },
         {
           "factor": "Sunshine",
-          "subscore": 0.97,
-          "points": 44.3,
+          "subscore": 0.92,
+          "points": 42.0,
           "weight": 0.15,
           "kind": "measured",
-          "note": "sunshine 84% of sky clear (recent days)"
+          "note": "sunshine 82% of sky clear (recent days)"
         }
       ],
       "outlook": [
@@ -121,7 +121,7 @@
       },
       "weather": {
         "air_temp_c": 26.6,
-        "sun_frac": 0.89,
+        "sun_frac": 0.87,
         "precip_mm": null,
         "outlook": [
           {
@@ -161,7 +161,7 @@
           "points": 45.5,
           "weight": 0.15,
           "kind": "measured",
-          "note": "sunshine 89% of sky clear (recent days)"
+          "note": "sunshine 87% of sky clear (recent days)"
         }
       ],
       "outlook": [
@@ -198,7 +198,7 @@
       },
       "weather": {
         "air_temp_c": 26.6,
-        "sun_frac": 0.89,
+        "sun_frac": 0.87,
         "precip_mm": null,
         "outlook": [
           {
@@ -238,7 +238,7 @@
           "points": 45.5,
           "weight": 0.15,
           "kind": "measured",
-          "note": "sunshine 89% of sky clear (recent days)"
+          "note": "sunshine 87% of sky clear (recent days)"
         }
       ],
       "outlook": [
@@ -275,7 +275,7 @@
       },
       "weather": {
         "air_temp_c": 27.3,
-        "sun_frac": 0.91,
+        "sun_frac": 0.9,
         "precip_mm": null,
         "outlook": [
           {
@@ -315,7 +315,7 @@
           "points": 45.5,
           "weight": 0.15,
           "kind": "measured",
-          "note": "sunshine 91% of sky clear (recent days)"
+          "note": "sunshine 90% of sky clear (recent days)"
         }
       ],
       "outlook": [
@@ -352,7 +352,7 @@
       },
       "weather": {
         "air_temp_c": 26.6,
-        "sun_frac": 0.89,
+        "sun_frac": 0.87,
         "precip_mm": null,
         "outlook": [
           {
@@ -392,7 +392,7 @@
           "points": 45.5,
           "weight": 0.15,
           "kind": "measured",
-          "note": "sunshine 89% of sky clear (recent days)"
+          "note": "sunshine 87% of sky clear (recent days)"
         }
       ],
       "outlook": [
@@ -429,7 +429,7 @@
       },
       "weather": {
         "air_temp_c": 27.3,
-        "sun_frac": 0.91,
+        "sun_frac": 0.9,
         "precip_mm": null,
         "outlook": [
           {
@@ -469,7 +469,7 @@
           "points": 45.5,
           "weight": 0.15,
           "kind": "measured",
-          "note": "sunshine 91% of sky clear (recent days)"
+          "note": "sunshine 90% of sky clear (recent days)"
         }
       ],
       "outlook": [
