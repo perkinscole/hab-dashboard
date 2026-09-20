@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T00:46:28.141688+00:00",
+  "generated_at": "2026-09-20T05:50:15.571923+00:00",
   "param_names": {
     "00010": "Water temp (C)",
     "00060": "Discharge (cfs)",
@@ -43,15 +43,15 @@
         "00300": "Dissolved O2 (mg/L)"
       },
       "weather": {
-        "air_temp_c": 15.7,
-        "sun_frac": 0.95,
+        "air_temp_c": 14.6,
+        "sun_frac": 0.96,
         "precip_mm": null,
         "outlook": [
           {
             "day": "+1d",
             "date": "2026-09-21",
             "air_temp_c": 15.5,
-            "sun_frac": 0.38
+            "sun_frac": 0.34
           },
           {
             "day": "+2d",
@@ -76,7 +76,7 @@
           "points": 45.5,
           "weight": 0.15,
           "kind": "measured",
-          "note": "sunshine 95% of sky clear (recent days)"
+          "note": "sunshine 96% of sky clear (recent days)"
         },
         {
           "factor": "Water temperature (proxy)",
@@ -84,7 +84,7 @@
           "points": 0.0,
           "weight": 0.18,
           "kind": "proxy",
-          "note": "air-temp PROXY 15.7 C (no measured water temp here)"
+          "note": "air-temp PROXY 14.6 C (no measured water temp here)"
         }
       ],
       "outlook": [
@@ -120,7 +120,7 @@
         "00300": "Dissolved O2 (mg/L)"
       },
       "weather": {
-        "air_temp_c": 14.3,
+        "air_temp_c": 12.7,
         "sun_frac": 1.0,
         "precip_mm": null,
         "outlook": [
@@ -128,7 +128,7 @@
             "day": "+1d",
             "date": "2026-09-21",
             "air_temp_c": 15.5,
-            "sun_frac": 0.37
+            "sun_frac": 0.35
           },
           {
             "day": "+2d",
@@ -161,7 +161,7 @@
           "points": 0.0,
           "weight": 0.18,
           "kind": "proxy",
-          "note": "air-temp PROXY 14.3 C (no measured water temp here)"
+          "note": "air-temp PROXY 12.7 C (no measured water temp here)"
         }
       ],
       "outlook": [
@@ -197,7 +197,7 @@
         "00300": "Dissolved O2 (mg/L)"
       },
       "weather": {
-        "air_temp_c": 14.3,
+        "air_temp_c": 12.7,
         "sun_frac": 1.0,
         "precip_mm": null,
         "outlook": [
@@ -205,7 +205,7 @@
             "day": "+1d",
             "date": "2026-09-21",
             "air_temp_c": 15.7,
-            "sun_frac": 0.37
+            "sun_frac": 0.34
           },
           {
             "day": "+2d",
@@ -238,7 +238,7 @@
           "points": 0.0,
           "weight": 0.18,
           "kind": "proxy",
-          "note": "air-temp PROXY 14.3 C (no measured water temp here)"
+          "note": "air-temp PROXY 12.7 C (no measured water temp here)"
         }
       ],
       "outlook": [
@@ -274,7 +274,7 @@
         "00300": "Dissolved O2 (mg/L)"
       },
       "weather": {
-        "air_temp_c": 15.2,
+        "air_temp_c": 13.6,
         "sun_frac": 1.0,
         "precip_mm": null,
         "outlook": [
@@ -282,13 +282,13 @@
             "day": "+1d",
             "date": "2026-09-21",
             "air_temp_c": 15.5,
-            "sun_frac": 0.35
+            "sun_frac": 0.3
           },
           {
             "day": "+2d",
             "date": "2026-09-22",
             "air_temp_c": 13.1,
-            "sun_frac": 0.39
+            "sun_frac": 0.4
           },
           {
             "day": "+3d",
@@ -315,7 +315,7 @@
           "points": 0.0,
           "weight": 0.18,
           "kind": "proxy",
-          "note": "air-temp PROXY 15.2 C (no measured water temp here)"
+          "note": "air-temp PROXY 13.6 C (no measured water temp here)"
         }
       ],
       "outlook": [
@@ -351,7 +351,7 @@
         "00300": "Dissolved O2 (mg/L)"
       },
       "weather": {
-        "air_temp_c": 14.3,
+        "air_temp_c": 12.7,
         "sun_frac": 1.0,
         "precip_mm": null,
         "outlook": [
@@ -359,7 +359,7 @@
             "day": "+1d",
             "date": "2026-09-21",
             "air_temp_c": 15.5,
-            "sun_frac": 0.37
+            "sun_frac": 0.35
           },
           {
             "day": "+2d",
@@ -392,7 +392,7 @@
           "points": 0.0,
           "weight": 0.18,
           "kind": "proxy",
-          "note": "air-temp PROXY 14.3 C (no measured water temp here)"
+          "note": "air-temp PROXY 12.7 C (no measured water temp here)"
         }
       ],
       "outlook": [
@@ -428,7 +428,7 @@
         "00300": "Dissolved O2 (mg/L)"
       },
       "weather": {
-        "air_temp_c": 15.2,
+        "air_temp_c": 13.6,
         "sun_frac": 1.0,
         "precip_mm": null,
         "outlook": [
@@ -436,13 +436,13 @@
             "day": "+1d",
             "date": "2026-09-21",
             "air_temp_c": 14.8,
-            "sun_frac": 0.35
+            "sun_frac": 0.29
           },
           {
             "day": "+2d",
             "date": "2026-09-22",
             "air_temp_c": 12.3,
-            "sun_frac": 0.34
+            "sun_frac": 0.37
           },
           {
             "day": "+3d",
@@ -469,7 +469,7 @@
           "points": 0.0,
           "weight": 0.18,
           "kind": "proxy",
-          "note": "air-temp PROXY 15.2 C (no measured water temp here)"
+          "note": "air-temp PROXY 13.6 C (no measured water temp here)"
         }
       ],
       "outlook": [
