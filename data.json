@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T00:38:47.712830+00:00",
+  "generated_at": "2026-10-06T07:17:56.844978+00:00",
   "param_names": {
     "00010": "Water temp (C)",
     "00060": "Discharge (cfs)",
@@ -43,40 +43,40 @@
         "00300": "Dissolved O2 (mg/L)"
       },
       "weather": {
-        "air_temp_c": 16.3,
-        "sun_frac": 0.47,
+        "air_temp_c": 15.7,
+        "sun_frac": 0.73,
         "precip_mm": null,
         "outlook": [
           {
             "day": "+1d",
             "date": "2026-10-07",
-            "air_temp_c": 10.9,
-            "sun_frac": 0.97
+            "air_temp_c": 10.2,
+            "sun_frac": 0.95
           },
           {
             "day": "+2d",
             "date": "2026-10-08",
-            "air_temp_c": 17.9,
-            "sun_frac": 0.87
+            "air_temp_c": 17.6,
+            "sun_frac": 0.85
           },
           {
             "day": "+3d",
             "date": "2026-10-09",
-            "air_temp_c": 15.0,
-            "sun_frac": 0.88
+            "air_temp_c": 14.7,
+            "sun_frac": 0.86
           }
         ]
       },
-      "score": 2.3,
-      "band": "low",
+      "score": 31.8,
+      "band": "moderate",
       "contributing_factors": [
         {
           "factor": "Sunshine",
-          "subscore": 0.05,
-          "points": 2.3,
+          "subscore": 0.7,
+          "points": 31.8,
           "weight": 0.15,
           "kind": "measured",
-          "note": "sunshine 47% of sky clear (recent days)"
+          "note": "sunshine 73% of sky clear (recent days)"
         },
         {
           "factor": "Water temperature (proxy)",
@@ -84,7 +84,7 @@
           "points": 0.0,
           "weight": 0.18,
           "kind": "proxy",
-          "note": "air-temp PROXY 16.3 C (no measured water temp here)"
+          "note": "air-temp PROXY 15.7 C (no measured water temp here)"
         }
       ],
       "outlook": [
@@ -120,48 +120,48 @@
         "00300": "Dissolved O2 (mg/L)"
       },
       "weather": {
-        "air_temp_c": 14.7,
-        "sun_frac": 0.39,
+        "air_temp_c": 13.5,
+        "sun_frac": 0.63,
         "precip_mm": null,
         "outlook": [
           {
             "day": "+1d",
             "date": "2026-10-07",
-            "air_temp_c": 9.8,
-            "sun_frac": 0.97
+            "air_temp_c": 9.4,
+            "sun_frac": 0.96
           },
           {
             "day": "+2d",
             "date": "2026-10-08",
-            "air_temp_c": 17.3,
-            "sun_frac": 0.87
+            "air_temp_c": 16.4,
+            "sun_frac": 0.83
           },
           {
             "day": "+3d",
             "date": "2026-10-09",
-            "air_temp_c": 15.0,
-            "sun_frac": 0.88
+            "air_temp_c": 14.3,
+            "sun_frac": 0.86
           }
         ]
       },
-      "score": 0.0,
+      "score": 20.5,
       "band": "low",
       "contributing_factors": [
+        {
+          "factor": "Sunshine",
+          "subscore": 0.45,
+          "points": 20.5,
+          "weight": 0.15,
+          "kind": "measured",
+          "note": "sunshine 63% of sky clear (recent days)"
+        },
         {
           "factor": "Water temperature (proxy)",
           "subscore": 0.0,
           "points": 0.0,
           "weight": 0.18,
           "kind": "proxy",
-          "note": "air-temp PROXY 14.7 C (no measured water temp here)"
-        },
-        {
-          "factor": "Sunshine",
-          "subscore": 0.0,
-          "points": 0.0,
-          "weight": 0.15,
-          "kind": "measured",
-          "note": "sunshine 39% of sky clear (recent days)"
+          "note": "air-temp PROXY 13.5 C (no measured water temp here)"
         }
       ],
       "outlook": [
@@ -172,7 +172,7 @@
         },
         {
           "day": "+2d",
-          "score": 45.5,
+          "score": 43.2,
           "band": "moderate"
         },
         {
@@ -197,48 +197,48 @@
         "00300": "Dissolved O2 (mg/L)"
       },
       "weather": {
-        "air_temp_c": 14.7,
-        "sun_frac": 0.39,
+        "air_temp_c": 13.5,
+        "sun_frac": 0.63,
         "precip_mm": null,
         "outlook": [
           {
             "day": "+1d",
             "date": "2026-10-07",
-            "air_temp_c": 9.7,
+            "air_temp_c": 9.0,
             "sun_frac": 0.96
           },
           {
             "day": "+2d",
             "date": "2026-10-08",
-            "air_temp_c": 17.1,
-            "sun_frac": 0.87
+            "air_temp_c": 17.2,
+            "sun_frac": 0.83
           },
           {
             "day": "+3d",
             "date": "2026-10-09",
-            "air_temp_c": 14.8,
-            "sun_frac": 0.88
+            "air_temp_c": 14.1,
+            "sun_frac": 0.86
           }
         ]
       },
-      "score": 0.0,
+      "score": 20.5,
       "band": "low",
       "contributing_factors": [
+        {
+          "factor": "Sunshine",
+          "subscore": 0.45,
+          "points": 20.5,
+          "weight": 0.15,
+          "kind": "measured",
+          "note": "sunshine 63% of sky clear (recent days)"
+        },
         {
           "factor": "Water temperature (proxy)",
           "subscore": 0.0,
           "points": 0.0,
           "weight": 0.18,
           "kind": "proxy",
-          "note": "air-temp PROXY 14.7 C (no measured water temp here)"
-        },
-        {
-          "factor": "Sunshine",
-          "subscore": 0.0,
-          "points": 0.0,
-          "weight": 0.15,
-          "kind": "measured",
-          "note": "sunshine 39% of sky clear (recent days)"
+          "note": "air-temp PROXY 13.5 C (no measured water temp here)"
         }
       ],
       "outlook": [
@@ -249,7 +249,7 @@
         },
         {
           "day": "+2d",
-          "score": 45.5,
+          "score": 43.2,
           "band": "moderate"
         },
         {
@@ -274,48 +274,48 @@
         "00300": "Dissolved O2 (mg/L)"
       },
       "weather": {
-        "air_temp_c": 15.6,
-        "sun_frac": 0.43,
+        "air_temp_c": 14.1,
+        "sun_frac": 0.68,
         "precip_mm": null,
         "outlook": [
           {
             "day": "+1d",
             "date": "2026-10-07",
-            "air_temp_c": 9.7,
+            "air_temp_c": 8.7,
             "sun_frac": 0.96
           },
           {
             "day": "+2d",
             "date": "2026-10-08",
             "air_temp_c": 17.1,
-            "sun_frac": 0.87
+            "sun_frac": 0.85
           },
           {
             "day": "+3d",
             "date": "2026-10-09",
-            "air_temp_c": 14.6,
-            "sun_frac": 0.89
+            "air_temp_c": 14.1,
+            "sun_frac": 0.86
           }
         ]
       },
-      "score": 0.0,
-      "band": "low",
+      "score": 26.1,
+      "band": "moderate",
       "contributing_factors": [
+        {
+          "factor": "Sunshine",
+          "subscore": 0.58,
+          "points": 26.1,
+          "weight": 0.15,
+          "kind": "measured",
+          "note": "sunshine 68% of sky clear (recent days)"
+        },
         {
           "factor": "Water temperature (proxy)",
           "subscore": 0.0,
           "points": 0.0,
           "weight": 0.18,
           "kind": "proxy",
-          "note": "air-temp PROXY 15.6 C (no measured water temp here)"
-        },
-        {
-          "factor": "Sunshine",
-          "subscore": 0.0,
-          "points": 0.0,
-          "weight": 0.15,
-          "kind": "measured",
-          "note": "sunshine 43% of sky clear (recent days)"
+          "note": "air-temp PROXY 14.1 C (no measured water temp here)"
         }
       ],
       "outlook": [
@@ -351,48 +351,48 @@
         "00300": "Dissolved O2 (mg/L)"
       },
       "weather": {
-        "air_temp_c": 14.7,
-        "sun_frac": 0.39,
+        "air_temp_c": 13.5,
+        "sun_frac": 0.63,
         "precip_mm": null,
         "outlook": [
           {
             "day": "+1d",
             "date": "2026-10-07",
-            "air_temp_c": 9.8,
-            "sun_frac": 0.97
+            "air_temp_c": 9.4,
+            "sun_frac": 0.96
           },
           {
             "day": "+2d",
             "date": "2026-10-08",
-            "air_temp_c": 17.3,
-            "sun_frac": 0.87
+            "air_temp_c": 16.4,
+            "sun_frac": 0.83
           },
           {
             "day": "+3d",
             "date": "2026-10-09",
-            "air_temp_c": 15.0,
-            "sun_frac": 0.88
+            "air_temp_c": 14.3,
+            "sun_frac": 0.86
           }
         ]
       },
-      "score": 0.0,
+      "score": 20.5,
       "band": "low",
       "contributing_factors": [
+        {
+          "factor": "Sunshine",
+          "subscore": 0.45,
+          "points": 20.5,
+          "weight": 0.15,
+          "kind": "measured",
+          "note": "sunshine 63% of sky clear (recent days)"
+        },
         {
           "factor": "Water temperature (proxy)",
           "subscore": 0.0,
           "points": 0.0,
           "weight": 0.18,
           "kind": "proxy",
-          "note": "air-temp PROXY 14.7 C (no measured water temp here)"
-        },
-        {
-          "factor": "Sunshine",
-          "subscore": 0.0,
-          "points": 0.0,
-          "weight": 0.15,
-          "kind": "measured",
-          "note": "sunshine 39% of sky clear (recent days)"
+          "note": "air-temp PROXY 13.5 C (no measured water temp here)"
         }
       ],
       "outlook": [
@@ -403,7 +403,7 @@
         },
         {
           "day": "+2d",
-          "score": 45.5,
+          "score": 43.2,
           "band": "moderate"
         },
         {
@@ -428,48 +428,48 @@
         "00300": "Dissolved O2 (mg/L)"
       },
       "weather": {
-        "air_temp_c": 15.6,
-        "sun_frac": 0.43,
+        "air_temp_c": 14.1,
+        "sun_frac": 0.68,
         "precip_mm": null,
         "outlook": [
           {
             "day": "+1d",
             "date": "2026-10-07",
-            "air_temp_c": 9.6,
-            "sun_frac": 0.98
+            "air_temp_c": 8.7,
+            "sun_frac": 0.97
           },
           {
             "day": "+2d",
             "date": "2026-10-08",
-            "air_temp_c": 16.4,
-            "sun_frac": 0.89
+            "air_temp_c": 16.6,
+            "sun_frac": 0.86
           },
           {
             "day": "+3d",
             "date": "2026-10-09",
-            "air_temp_c": 14.4,
-            "sun_frac": 0.89
+            "air_temp_c": 14.5,
+            "sun_frac": 0.87
           }
         ]
       },
-      "score": 0.0,
-      "band": "low",
+      "score": 26.1,
+      "band": "moderate",
       "contributing_factors": [
+        {
+          "factor": "Sunshine",
+          "subscore": 0.58,
+          "points": 26.1,
+          "weight": 0.15,
+          "kind": "measured",
+          "note": "sunshine 68% of sky clear (recent days)"
+        },
         {
           "factor": "Water temperature (proxy)",
           "subscore": 0.0,
           "points": 0.0,
           "weight": 0.18,
           "kind": "proxy",
-          "note": "air-temp PROXY 15.6 C (no measured water temp here)"
-        },
-        {
-          "factor": "Sunshine",
-          "subscore": 0.0,
-          "points": 0.0,
-          "weight": 0.15,
-          "kind": "measured",
-          "note": "sunshine 43% of sky clear (recent days)"
+          "note": "air-temp PROXY 14.1 C (no measured water temp here)"
         }
       ],
       "outlook": [
